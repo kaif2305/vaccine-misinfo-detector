@@ -10,9 +10,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def load_dataset(split="train"):
-    input_ids = torch.load(f"data/processed/{split}_input_ids.pt")
-    attention_masks = torch.load(f"data/processed/{split}_attention_mask.pt")
-    labels = torch.load(f"data/processed/{split}_labels.pt")
+    input_ids = torch.load(f"../../data/processed/{split}_input_ids.pt")
+    attention_masks = torch.load(f"../../data/processed/{split}_attention_mask.pt")
+    labels = torch.load(f"../../data/processed/{split}_labels.pt")
 
     dataset = TensorDataset(input_ids, attention_masks, labels)
     return dataset
@@ -45,6 +45,8 @@ for epoch in range(num_epochs):
     total_loss = 0
 
     for batch in tqdm(train_loader, desc=f"Epoch {epoch + 1}"):
+        print(f"Batch size: {len(batch)}")
+        print(f"Batch data: {batch}")
         b_input_ids = batch[0].to(device)
         b_attention_mask = batch[1].to(device)
         b_labels = batch[2].to(device)
