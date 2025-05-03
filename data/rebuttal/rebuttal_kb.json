@@ -1,0 +1,22 @@
+[
+  {
+    "keywords": ["autism", "vaccine"],
+    "rebuttal": "Multiple studies show no link between vaccines and autism.",
+    "sources": ["https://www.cdc.gov/vaccinesafety/concerns/autism.html"]
+  },
+  {
+    "keywords": ["mRNA", "change DNA"],
+    "rebuttal": "mRNA vaccines do not alter human DNA.",
+    "sources": ["https://www.cdc.gov/coronavirus/2019-ncov/vaccines/facts.html"]
+  },
+  {
+    "keywords": ["fertility", "vaccine"],
+    "rebuttal": "There is no evidence that COVID-19 vaccines affect fertility.",
+    "sources": ["https://www.cdc.gov/coronavirus/2019-ncov/vaccines/faq.html"]
+  },
+  {
+    "keywords": ["microchip", "injection"],
+    "rebuttal": "Vaccines do not contain microchips. This is a conspiracy theory.",
+    "sources": ["https://www.snopes.com/fact-check/vaccine-microchip/"]
+  }
+]
