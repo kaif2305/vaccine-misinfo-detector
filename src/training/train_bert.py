@@ -21,10 +21,16 @@ model = BertForSequenceClassification.from_pretrained(MODEL_NAME, num_labels=2)
 model.to(device)
 
 def load_dataset(split="train"):
+<<<<<<< HEAD
     input_ids = torch.load(f"data/processed/{split}_input_ids.pt")
     attention_masks = torch.load(f"data/processed/{split}_attention_mask.pt")
     labels = torch.load(f"data/processed/{split}_labels.pt")
     return TensorDataset(input_ids, attention_masks, labels)
+=======
+    input_ids = torch.load(f"../../data/processed/{split}_input_ids.pt")
+    attention_masks = torch.load(f"../../data/processed/{split}_attention_mask.pt")
+    labels = torch.load(f"../../data/processed/{split}_labels.pt")
+>>>>>>> 48f22856b555351c711423ca34fdbcbe49184e98
 
 train_loader = DataLoader(load_dataset("train"), batch_size=16, shuffle=True)
 val_loader = DataLoader(load_dataset("val"), batch_size=16, shuffle=False)
@@ -39,8 +45,23 @@ for epoch in range(num_epochs):
     model.train()
     total_loss = 0
 
+<<<<<<< HEAD
     for batch in tqdm(train_loader, desc=f"Epoch {epoch+1}"):
         b_input_ids, b_attention_mask, b_labels = [t.to(device) for t in batch]
+=======
+    for batch in tqdm(train_loader, desc=f"Epoch {epoch + 1}"):
+        print(f"Batch size: {len(batch)}")
+        print(f"Batch data: {batch}")
+        b_input_ids = batch[0].to(device)
+        b_attention_mask = batch[1].to(device)
+        b_labels = batch[2].to(device)
+
+        outputs = model(
+            input_ids=b_input_ids,
+            attention_mask=b_attention_mask,
+            labels=b_labels
+        )
+>>>>>>> 48f22856b555351c711423ca34fdbcbe49184e98
 
         outputs = model(input_ids=b_input_ids, attention_mask=b_attention_mask, labels=b_labels)
         loss = outputs.loss
