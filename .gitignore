@@ -11,3 +11,4 @@ gen
 *.pyc
 .ipynb_checkpoints/
 .gradio/
+*.safetensors
