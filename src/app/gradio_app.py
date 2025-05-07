@@ -13,11 +13,11 @@ from rebuttal.rule_rebuttal import RebuttalRetriever
 
 
 # Paths may need adjusting depending on your directory structure
-PROMPT_PATH = Path("data/rebuttal/prompts.txt")
-KB_PATH = Path("C:/Users/Heishigan/Desktop/vaccine-misinfo-detector/data/rebuttal/rebuttal_kb.json")
+PROMPT_PATH = Path("../data/rebuttal/prompts.txt")
+KB_PATH = Path("../data/rebuttal/rebuttal_kb.json")
 
 # Initialize once
-MODEL_PATH = Path("C:/Users/Heishigan/Desktop/vaccine-misinfo-detector/models/bert_saved")
+MODEL_PATH = Path("../models/bert_saved")
 classifier = VaccineMisinformationDetector(str(MODEL_PATH.resolve()))  # Convert to string
 gpt_generator = VaccineRebuttalGenerator(prompt_path=PROMPT_PATH)
 rule_retriever = RebuttalRetriever(KB_PATH)

@@ -27,6 +27,8 @@ and provide rebuttals based on a predefined knowledge base (KB).
 """
 import json
 from typing import List, Dict, Optional
+from pathlib import Path
+
 
 class RebuttalRetriever:
     """

@@ -19,7 +19,7 @@ from sklearn.model_selection import train_test_split
 class VaccineMisinformationDetector:
     def __init__(self, model_path: str):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+        self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         self.max_len = 128
         self.model = AutoModelForSequenceClassification.from_pretrained(model_path) # Load the model
         self.model.to(self.device)
@@ -47,23 +47,24 @@ class VaccineMisinformationDetector:
     def predict(self, text: str) -> int:
         logging.debug(f"Predicting label for text: {text}")
         cleaned_text = self.clean_text(text)
-        preprocess_and_tokenized_text = self.preprocess_for_inference(cleaned_text)
-
+        print(f"Cleaned text: {cleaned_text}")  # Debug print
+        input_ids, attention_mask = self.preprocess_for_inference(cleaned_text)
         with torch.no_grad():
-            outputs = self.model(preprocess_and_tokenized_text[0], attention_mask=preprocess_and_tokenized_text[1])
+            outputs = self.model(input_ids, attention_mask=attention_mask)
             logits = outputs.logits
             probs = torch.softmax(logits, dim=1)
+            print(f"Class probabilities: {probs}")  # Debug print
             pred_label = torch.argmax(probs, dim=1).item()
+
 
         return pred_label
 
-#TODO Seems model is not well trained, all the input is classified as 0
 if __name__ == '__main__':
     # Example usage
     detector = VaccineMisinformationDetector(model_path="heishi99/vaccine-misinfo-bert")
-    claim = "Vaccines cause autism."
+    claim = "Further Evidence Does Not Support Hydroxychloroquine for Patients With COVID-19"
     label = detector.predict(claim)
     print(f"Claim: {claim}\nPredicted label: {label}")
-    claim = "COVID-19 vaccines do not affect fertility."
+    claim = "Seven in 10 Americans Willing to Get COVID-19 Vaccine, Survey Finds"
     label = detector.predict(claim)
     print(f"Claim: {claim}\nPredicted label: {label}")
