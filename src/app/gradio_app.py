@@ -9,20 +9,38 @@ from pathlib import Path
 from inference.predict import VaccineMisinformationDetector
 from rebuttal.gpt_rebuttal import VaccineRebuttalGenerator
 from rebuttal.rule_rebuttal import RebuttalRetriever
+from ocr.extract_text import extract_text_from_image 
+from PIL import Image
+from typing import Union
 
 
 
-# Paths may need adjusting depending on your directory structure
-PROMPT_PATH = Path("../data/rebuttal/prompts.txt")
-KB_PATH = Path("../data/rebuttal/rebuttal_kb.json")
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+MODEL_PATH = PROJECT_ROOT / "models" / "bert_saved"
+PROMPT_PATH = PROJECT_ROOT / "data" / "rebuttal" / "prompts.txt"
+KB_PATH = PROJECT_ROOT / "data" / "rebuttal" / "rebuttal_kb.json"
 
-# Initialize once
-MODEL_PATH = Path("../models/bert_saved")
 classifier = VaccineMisinformationDetector(str(MODEL_PATH.resolve()))  # Convert to string
 gpt_generator = VaccineRebuttalGenerator(prompt_path=PROMPT_PATH)
 rule_retriever = RebuttalRetriever(KB_PATH)
 
-def process_claim(claim):
+def process_input(image_input: Union[Image.Image, None], text_input: Union[str, None]):
+    """
+    Handles both text and image inputs.
+    """
+    if image_input is not None:
+        try:
+            claim = extract_text_from_image(image_input)
+        except Exception as e:
+            return "OCR Failed", f"Error extracting text from image: {e}"
+    elif text_input is not None:
+        claim = text_input.strip()
+    else:
+        return "Invalid input", "Please provide either an image or text input."
+
+    if not claim:
+        return "No valid claim detected", "Please provide a valid text or image containing readable text."
+
     label = classifier.predict(claim)
 
     if label == 0:
@@ -45,15 +63,17 @@ def process_claim(claim):
 
 # Gradio UI
 iface = gr.Interface(
-    fn=process_claim,
-    inputs=gr.Textbox(label="Enter a vaccine-related claim"),
+    fn=process_input,
+    inputs=[
+        gr.Image(type="pil", label="Upload meme/claim image"), 
+        gr.Textbox(label="Or enter a vaccine-related claim")
+    ],
     outputs=[
         gr.Textbox(label="Classification"),
         gr.Textbox(label="Rebuttals")
     ],
-    title="Vaccine Misinformation Detector",
-    description="Classifies claims and provides fact-based rebuttals using rule-based and GPT models."
+    title="Vaccine Misinformation Detector (Text + Image)",
+    description="Upload an image (e.g., meme) or enter a claim directly. The system detects vaccine misinformation and generates rebuttals."
 )
-
 if __name__ == "__main__":
     iface.launch()
