@@ -95,58 +95,6 @@ def clean_extracted_text(text: str) -> str:
     
     return text
 
-
-
-# def extract_text_from_image(image_path: Union[str, Image.Image]) -> str:
-#     """
-#     Extract text from an image file or PIL Image object.
-    
-#     Args:
-#         image_path: Path to image file or PIL.Image object
-        
-#     Returns:
-#         Extracted and cleaned text string
-#     """
-#     # Load image if path is provided
-#     if isinstance(image_path, str):
-#         if image_path.startswith(('http://', 'https://')):
-#             # Download image from URL
-#             print(f"Downloading image from {image_path}")
-#             response = requests.get(image_path)
-#             image = Image.open(io.BytesIO(response.content))
-#         else:
-#             # Load from local file
-#             print(f"Loading image from {image_path}")
-#             image = Image.open(image_path)
-#     elif isinstance(image_path, Image.Image):
-#         image = image_path
-#     else:
-#         raise ValueError("Input must be image path (str) or PIL.Image object")
-    
-#     # Display original image
-#     plt.figure(figsize=(6, 6))
-#     plt.imshow(image)
-#     plt.title("Input Image")
-#     plt.axis('off')
-#     plt.show()
-    
-#     # Preprocess image for better OCR results
-#     image = preprocess_image(image)
-    
-#     # Use pytesseract to extract text
-#     try:
-#         text = pytesseract.image_to_string(image, lang='eng')
-#     except pytesseract.TesseractNotFoundError:
-#         raise RuntimeError(
-#             "Tesseract OCR is not installed or not in your PATH. "
-#             "Please install it from https://github.com/tesseract-ocr/tesseract"
-#         )
-    
-#     # Clean the extracted text
-#     cleaned_text = clean_extracted_text(text)
-    
-#     return cleaned_text
-
 def extract_text_from_image(image):
     reader = easyocr.Reader(['en']) 
     result = reader.readtext(np.array(image))

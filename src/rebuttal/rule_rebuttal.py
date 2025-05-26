@@ -74,10 +74,12 @@ class RebuttalRetriever:
                 }
         return None
 
-
+import os
 # Example usage
 if __name__ == "__main__":
-    retriever = RebuttalRetriever("../../data/rebuttal/rebuttal_kb.json")
+    file_path = os.path.join('data', 'rebuttal', 'rebuttal_kb.json')
+    abs_path = os.path.abspath(file_path)
+    retriever = RebuttalRetriever(abs_path)
 
     test_claims = [
         "Vaccines cause autism in children.",
