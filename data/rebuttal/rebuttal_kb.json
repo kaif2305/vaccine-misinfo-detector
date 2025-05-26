@@ -1,38 +1,50 @@
 [
   {
     "keywords": ["autism", "vaccine"],
-    "rebuttal": "Multiple studies show no link between vaccines and autism.",
-    "sources": ["https://www.cdc.gov/vaccinesafety/concerns/autism.html"]
+    "rebuttal": "Extensive scientific research has found no link between vaccines and autism. The claim originated from a now-discredited 1998 study, which was retracted due to ethical violations and methodological flaws. Large-scale studies in multiple countries have consistently shown that children who receive vaccines are not at increased risk of developing autism compared to those who do not.",
+    "sources": [
+      "https://www.cdc.gov/vaccine-safety/about/autism.html",
+      "https://www.cdc.gov/vaccine-safety/about/thimerosal.html"
+    ]
   },
   {
     "keywords": ["mRNA", "change DNA"],
-    "rebuttal": "mRNA vaccines do not alter human DNA.",
-    "sources": ["https://www.cdc.gov/coronavirus/2019-ncov/vaccines/facts.html"]
+    "rebuttal": "mRNA vaccines, such as those developed for COVID-19, do not enter the cell nucleus where DNA is located and therefore cannot interact with or alter human DNA. Instead, the mRNA provides instructions to cells to produce a harmless spike protein, triggering an immune response. The mRNA is quickly broken down by the body after its job is done.",
+    "sources": [
+      "https://www.cdc.gov/covid/vaccines/how-they-work.html",
+      "https://www2.cdc.gov/vaccines/ed/covid/2_3.asp"
+    ]
   },
   {
     "keywords": ["fertility", "vaccine"],
-    "rebuttal": "There is no evidence that COVID-19 vaccines affect fertility.",
-    "sources": ["https://www.cdc.gov/coronavirus/2019-ncov/vaccines/faq.html"]
+    "rebuttal": "There is no evidence that COVID-19 vaccines affect fertility in men or women. Studies and real-world data have shown that vaccinated individuals do not experience decreased fertility compared to unvaccinated individuals. Major health organizations, including the CDC and American College of Obstetricians and Gynecologists, support vaccination for people planning pregnancy, currently pregnant, or breastfeeding.",
+    "sources": [
+      "https://www.cdc.gov/covid/vaccines/planning-for-pregnancy.html",
+      "https://www.cdc.gov/covid/vaccines/pregnant-or-breastfeeding.html"
+    ]
   },
   {
     "keywords": ["microchip", "injection"],
-    "rebuttal": "Vaccines do not contain microchips. This is a conspiracy theory.",
-    "sources": ["https://www.snopes.com/fact-check/vaccine-microchip/"]
+    "rebuttal": "There is no scientific basis to the claim that COVID-19 vaccines contain microchips. This conspiracy theory has been thoroughly debunked by fact-checking organizations and public health authorities. Vaccine ingredients are publicly available and strictly regulated; they include lipids, salts, and stabilizers, but no microelectronics of any kind.",
+    "sources": [
+      "https://www.cdc.gov/ncird/whats-new/5-things-you-should-know.html",
+      "https://archive.cdc.gov/www_cdc_gov/coronavirus/2019-ncov/vaccines/facts.html"
+    ]
   },
   {
-    "keywords": ["gujarat", "cow dung", "panchgavya", "wonder drug", "coronil"],
-    "rebuttal": "There is no credible scientific evidence that cow-derived products (like Panchgavya) cure or prevent COVID-19. Ayurvedic remedies must undergo rigorous clinical trials to prove efficacy and safety, and no such trials have validated this claim. The WHO and CDC recommend evidence-based vaccines and treatments.",
+    "keywords": ["cow", "panchgavya"],
+    "rebuttal": "There is no credible scientific evidence that cow-derived products such as Panchgavya can prevent or cure COVID-19. These claims lack validation from peer-reviewed clinical trials. Health authorities such as the WHO recommend evidence-based medical interventions and vaccines. The promotion of unverified treatments can mislead the public and divert attention from proven health measures.",
     "sources": [
-      "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters", 
+      "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters",
       "https://science.thewire.in/health/ayush-ministry-coronil-patched-up-clinical-trial-data/"
     ]
   },
   {
-    "keywords": ["bill gates", "alter dna", "experimental technology", "permanent change"],
-    "rebuttal": "COVID-19 vaccines (including mRNA vaccines) do not alter human DNA. mRNA technology teaches cells to make a harmless spike protein to trigger immunity, then breaks down naturally. Bill Gates has repeatedly debunked this myth, and no credible scientific institution supports this claim.",
+    "keywords": ["gates", "dna"],
+    "rebuttal": "COVID-19 vaccines, including mRNA-based ones, do not modify your DNA. The mRNA never enters the cell’s nucleus where DNA resides. Instead, it instructs cells to produce a viral spike protein to stimulate immunity, after which the mRNA is degraded. Claims linking Bill Gates to vaccine-related DNA manipulation are part of a broader misinformation campaign and have been debunked by both the Gates Foundation and scientific institutions.",
     "sources": [
-      "https://www.gatesfoundation.org/ideas/articles/covid-19-vaccine-myths", 
-      "https://www.nih.gov/news-events/news-releases/nih-study-confirms-mrna-vaccines-do-not-alter-dna"
+      "https://www.gatesfoundation.org/goalkeepers/report/2024-report/",
+      "https://www.cdc.gov/covid/vaccines/how-they-work.html"
     ]
   }
 ]
