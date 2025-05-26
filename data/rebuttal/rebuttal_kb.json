@@ -5,7 +5,7 @@
     "sources": ["https://www.cdc.gov/vaccinesafety/concerns/autism.html"]
   },
   {
-    "keywords": ["mRNA", "change DNA", "alter dna", "alter your dna", "modify dna", "genetic", "permanently alter", "bill gates"],
+    "keywords": ["mRNA", "change DNA"],
     "rebuttal": "mRNA vaccines do not alter human DNA.",
     "sources": ["https://www.cdc.gov/coronavirus/2019-ncov/vaccines/facts.html"]
   },
@@ -18,5 +18,21 @@
     "keywords": ["microchip", "injection"],
     "rebuttal": "Vaccines do not contain microchips. This is a conspiracy theory.",
     "sources": ["https://www.snopes.com/fact-check/vaccine-microchip/"]
+  },
+  {
+    "keywords": ["gujarat", "cow dung", "panchgavya", "wonder drug", "coronil"],
+    "rebuttal": "There is no credible scientific evidence that cow-derived products (like Panchgavya) cure or prevent COVID-19. Ayurvedic remedies must undergo rigorous clinical trials to prove efficacy and safety, and no such trials have validated this claim. The WHO and CDC recommend evidence-based vaccines and treatments.",
+    "sources": [
+      "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters", 
+      "https://science.thewire.in/health/ayush-ministry-coronil-patched-up-clinical-trial-data/"
+    ]
+  },
+  {
+    "keywords": ["bill gates", "alter dna", "experimental technology", "permanent change"],
+    "rebuttal": "COVID-19 vaccines (including mRNA vaccines) do not alter human DNA. mRNA technology teaches cells to make a harmless spike protein to trigger immunity, then breaks down naturally. Bill Gates has repeatedly debunked this myth, and no credible scientific institution supports this claim.",
+    "sources": [
+      "https://www.gatesfoundation.org/ideas/articles/covid-19-vaccine-myths", 
+      "https://www.nih.gov/news-events/news-releases/nih-study-confirms-mrna-vaccines-do-not-alter-dna"
+    ]
   }
 ]
