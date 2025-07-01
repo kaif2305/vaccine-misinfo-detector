@@ -9,15 +9,6 @@
 - [Features](#features)  
 - [Dataset](#dataset)  
 - [Installation](#installation)  
-- [Procedure](#procedure)  
-- [Usage](#usage)  
-- [Model Training](#model-training)  
-- [Evaluation](#evaluation)  
-- [Inference](#inference)  
-- [Folder Structure](#folder-structure)  
-- [Contributing](#contributing)  
-- [License](#license)  
-- [Contact](#contact)
 
 ---
 
